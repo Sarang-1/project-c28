@@ -2,11 +2,11 @@ class paper{
     constructor(x,y){
         var options = {
             
-            'restitution':0.8,
-            'friction':1.0,
-            'density':1.0
+            'restitution':0.3,
+            'friction':2.0,
+            'density':1.2
         }
-        this.body = Bodies.rectangle(x, y, 35,35, options);
+        this.body = Bodies.circle(x, y, 18, options);
         this.width = 50;
         this.height = 50;
         this.image = loadImage("images/paper.png");

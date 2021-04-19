@@ -5,7 +5,7 @@ const Bodies = Matter.Bodies;
 const Body = Matter.Body;
 const Constraint = Matter.Constraint;
 
-var paper1,ground,bin1,bin2,bin3,binimg,binsprite,Slingshot1;
+var paper1,ground,bin1,bin2,bin3,binimg,binsprite,Launcher1;
 
 function preload()
 {
@@ -24,14 +24,14 @@ function setup() {
   binsprite.scale=0.5;
 
 	//Create the Bodies Here.
-    paper1 = new paper(100,200);
+    paper1 = new paper(150,200);
     ground = new Ground(600,400,1200,10);
 
-    bin1 = new bin(800,385,125,20);
-	bin2 = new bin(745,315,20,160);
-	bin3 = new bin(855,315,20,160);
+    bin1 = new bin(800,395,125,10);
+	bin2 = new bin(735,315,10,160);
+	bin3 = new bin(865,315,10,160);
 	
-  Slingshot1 = new SlingShot(paper1.body,{x: 200, y:200});
+  Launcher1 = new Launcher(paper1.body,{x: 200, y:170});
 }
 
 
@@ -43,16 +43,11 @@ function draw() {
 
   paper1.display();
   ground.display();
-
-  bin2.display();
-  bin3.display();
-  bin1.display();
-  Slingshot1.display();
-
-  textSize(20)
-  fill("lightblue");
+Launcher1.display();
   
-  text("Press UP arrow key to throw",500,100);
+  
+
+  
 drawSprites();
 }
 
@@ -63,5 +58,5 @@ function mouseDragged(){
 }
 
 function mouseReleased(){
-  Slingshot1.fly();
+  Launcher1.fly();
 }
